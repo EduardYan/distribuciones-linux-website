@@ -1,0 +1,102 @@
+---
+interface Props {
+  title: string;
+  name: string;
+  href: string;
+  img: string;
+  isLazyLoading?: boolean;
+}
+
+const { title, href, img, name, isLazyLoading = false } = Astro.props;
+---
+
+<article class="card">
+  <h1>{title}</h1>
+  <p>
+    <slot />
+  </p>
+
+  <div class="container">
+    <a href={href} target="_blank" rel="noreferrer">
+      {
+        isLazyLoading 
+        ? <img src={img} alt=`${name} image` loading="lazy"/>
+        : <img src={img} alt=`${name} image` />
+      }
+
+      <svg
+        class="overlay"
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6.188 17.288L5.5 16.6L15.58 6.5H6.289v-1h11v11h-1V7.208l-10.1 10.08Z"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</article>
+<style>
+  .card {
+    border-radius: 3px;
+    padding: 25px;
+    margin-bottom: 3em;
+  }
+
+  .card h1 {
+    font-size: 1.5em;
+  }
+
+  .card p {
+    font-size: 1.2em;
+  }
+
+  .card .container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .card .container img {
+    width: 400px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .card .container img:hover,
+  .card .container .overlay {
+    cursor: pointer;
+  }
+
+  .card .container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 50px;
+    fill: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card .container:hover .overlay {
+    opacity: 1;
+  }
+
+  .card .container a {
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .card .container a:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (width < 500px) {
+    .card .container img {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+interface Props {
+  href: string;
+  imgName: string;
+  imgSrc: string;
+  id?: string;
+  isExternalLink?: boolean;
+}
+
+const { href, imgName, imgSrc, id, isExternalLink = false} = Astro.props;
+---
+
+{
+  isExternalLink 
+  ? <a href={href} target="_blank" rel="noreferrer">
+      <img src={imgSrc} alt=`${imgName} image` id={id} />
+    </a>
+  : <a href={href}>
+      <img src={imgSrc} alt=`${imgName} image` id={id} />
+    </a>
+}
+<style>
+  img {
+    width: 60px;
+  }
+  @keyframes rotateRight {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotateLeft {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  #first-image {
+  animation: rotateLeft 5s infinite linear;
+  }
+
+  #second-image {
+    animation: rotateRight 5s infinite linear;
+  }
+
+  a {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  a:hover {
+    transform: translateY(-5px);
+  }
+
+</style>

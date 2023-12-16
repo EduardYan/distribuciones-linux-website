@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="404 No encontrado">
+  <Header />
+
+  <div>
+    <h1>Esta página no existe</h1>
+    <img
+      src="https://25.media.tumblr.com/c871564351bc7a6f430a4d425c7ccb85/tumblr_mm90hr5Z0d1r22bgjo1_400.gif"
+      alt="gif animado"
+    />
+  </div>
+</Layout>
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  div h1 {
+    font-size: 1.5em;
+  }
+</style>

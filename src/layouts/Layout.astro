@@ -1,0 +1,85 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="¿Cónoces las distribuciones Linux? Akí te las muestro"
+    />
+
+    <!-- Open graph -->
+    <meta property="og:url" content="https://distros-linux-page.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Distros Linux" />
+    <meta
+      property="og:description"
+      content="¿Conocés las distribuciones Linux? Aquí te las muestro"
+    />
+    <meta
+      property="og:image"
+      content="https://distros-linux-page.vercel.app/imgs/screenshot.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Previsualización de nuestra web" />
+    <meta property="og:site_name" content="Distribuciones Linux" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="distros-linux-page.vercel.app" />
+    <meta
+      property="twitter:url"
+      content="https://distros-linux-page.vercel.app/"
+    />
+    <meta name="twitter:title" content="Distros Linux" />
+    <meta
+      name="twitter:description"
+      content="¿Conocés las distribuciones Linux? Aquí te las muestro"
+    />
+    <meta
+      name="twitter:image"
+      content="https://distros-linux-page.vercel.app/imgs/screenshot.png"
+    />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,500&display=swap");
+
+      body {
+        font-family: "Nunito Sans", system-ui, sans-serif;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+      }
+
+      @media (width < 600px) {
+        main {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </body>
+</html>

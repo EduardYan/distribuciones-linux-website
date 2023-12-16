@@ -1,0 +1,61 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header>
+  <h1>Distribuciones Linux</h1>
+  <div>
+    <!-- <a href="/">
+      <img src="/icon.png" alt="linux image" />
+    </a>
+    <a href="/about">
+      <img src="/icon.png" alt="about image" id="first-image" />
+    </a>
+    <a href="https://github.com/EduardYan" target="_blank" rel="noreferrer">
+      <img
+        src="https://img.icons8.com/pulsar-color/96/github.png"
+        alt="github logo"
+        id="second-image"
+      />
+    </a> -->
+
+    <HeaderLink href="/" imgName="linux" imgSrc="/icon.png" />
+    <HeaderLink
+      href="/about"
+      imgName="about"
+      imgSrc="/icon.png"
+      id="first-image"
+    />
+    <HeaderLink
+      href="https://github.com/EduardYan"
+      imgName="github"
+      imgSrc="https://img.icons8.com/pulsar-color/96/github.png"
+      isExternalLink={true}
+      id="second-image"
+    />
+  </div>
+</header>
+<style>
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5em;
+  }
+
+  @media (width < 600px) {
+    header {
+      display: block;
+    }
+
+    header h1 {
+      text-align: center;
+    }
+
+    header div {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+</style>
