@@ -4,7 +4,7 @@ Un projecto de un sitio web sobre distribuciones linux, creado con Astro 🚀
 
 ## Screenshot
 
-![screenshot](./doc/screenshot.png)
+![screenshot](./public/imgs/screenshot.png)
 
 ## Instalando
 

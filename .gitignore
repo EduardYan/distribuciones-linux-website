@@ -1,4 +1,5 @@
 package-lock.json
+dist.zip
 
 # build output
 dist/
